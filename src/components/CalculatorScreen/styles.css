@@ -1,0 +1,21 @@
+.screen-bottom, .screen-top {
+  text-align: right;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.screen-top {
+  flex: 1;
+  font-size: 40px;
+  width: 90%;
+  align-self: flex-end;
+}
+
+.screen-bottom {
+  flex: 2;
+  font-size: 60px;
+  width: 80%;
+  align-self: flex-end;
+}
