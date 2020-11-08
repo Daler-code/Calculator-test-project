@@ -10,18 +10,14 @@ let initialState = {
 
 function setExpression({ expression, total}, action) {
 
-  if (
-    /[\d]*[-+%*/.]$/.exec(expression) &&
-    /[-+%*/.]/.exec(action.payload)
-  ) {
-    console.log('b', expression);
+  // Disable inputting the operators multiple times in once
+  if (/[\d]*[-+%*/√.]$/.exec(expression) && /[-+%*/.]/.exec(action.payload)) {
     expression = expression.slice(0, expression.length - 1)
-    console.log('a', expression);
   }
 
   switch (action.type) {
     case actionTypes.SET_EXPRESSION:
-      if (['+', '/', '*', '%'].includes(action.payload) && !expression) {
+      if (['+', '/', '*', '%', '√', 'x^y'].includes(action.payload) && !expression) {
         return `${total}${action.payload}`
       }
       return `${!expression && total ? total : ''}${expression + action.payload}`
@@ -65,14 +61,14 @@ const claculatorReducer = (state = initialState, action) => {
     case actionTypes.SQRT_EXPRESSION:
       return {
         ...state,
-        expression: '',
-        total: Math.sqrt(state.expression)
+        expression: action.payload.expression,
+        total: Math.sqrt(state.expression) || state.total
       }
-    case actionTypes.EXPONENTIATION_EXPRESSION:
+      case actionTypes.EXPONENTIATION_EXPRESSION:
       return {
         ...state,
         expression: '',
-        total: Math.pow(state.expression, state.expression)
+        total: state.expression ** state.expression || state.total
       }
     default:
       return state

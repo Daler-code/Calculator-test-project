@@ -8,6 +8,21 @@ export const calculate = (expression) => {
   }
 };
 
+export const exponentiation = (expression) => {
+  return {
+    type: actionTypes.EXPONENTIATION_EXPRESSION,
+    payload: expression
+  }
+};
+
+
+export const sqrtExpression = (expression) => {
+  return {
+    type: actionTypes.SQRT_EXPRESSION,
+    payload: expression
+  }
+};
+
 export const clear = () => {
   return {
     type: actionTypes.CLEAR_EXPRESSION
@@ -25,16 +40,3 @@ export const deleteLastEntry = () => {
     type: actionTypes.DELETE_LAST_EXPRESSION_ENTRY
   }
 };
-
-export const sqrtExpression = () => {
-  return {
-    type: actionTypes.SQRT_EXPRESSION
-  }
-};
-
-export const exponentiation = () => {
-  return {
-    type: actionTypes.EXPONENTIATION_EXPRESSION
-  }
-};
-

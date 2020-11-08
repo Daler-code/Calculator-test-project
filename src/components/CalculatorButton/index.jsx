@@ -17,11 +17,10 @@ const CalculatorButton = ({ onButtonClick, buttonKey }) => {
     buttonKey === '0' ? 'btn-zero': ''
   ];
 
-
   return (
     <button 
-     onClick={handleClick}
-     className={classNames.join(' ').trim()}
+      onClick={handleClick}
+      className={classNames.join(' ').trim()}
     >
       { buttonKey }
     </button>

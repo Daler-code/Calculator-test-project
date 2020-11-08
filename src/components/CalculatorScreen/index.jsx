@@ -5,6 +5,7 @@ import { Textfit } from 'react-textfit';
 import './styles.css';
 
 const containerStyles = {
+  width: '80%',
   flex: '0.5',
   flex: '0.5 1',
   display: 'flex',
@@ -13,7 +14,7 @@ const containerStyles = {
 
 const CalculatorScreen = ({ expression, total }) => {
   return (
-    <Fragment style={containerStyles}>
+    <div style={containerStyles}>
       <Textfit
         max={40}
         throttle={60}
@@ -23,13 +24,13 @@ const CalculatorScreen = ({ expression, total }) => {
         {expression}
       </Textfit>
       <Textfit
-        max={150}
+        max={100}
         mode="single"
         className="screen-bottom"
       >
         {total}
       </Textfit>
-    </Fragment>
+    </div>
   )
 };
 

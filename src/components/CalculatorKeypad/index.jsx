@@ -37,7 +37,7 @@ const CalculatorKeypad = ({
         break
       case '√':
         sqrtExpression(key)
-      case '**':
+      case 'x^y':
         exponentiation(key)
       default:
         calculate(key)
